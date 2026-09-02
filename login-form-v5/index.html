@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form V5</title>
+    <!-- Tailwind CSS for utility classes matching the React code -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons (User, Lock, Eye) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen flex items-center justify-center text-white relative font-sans">
+    
+    <!-- Background Grid & Dots -->
+    <div class="bg-grid"></div>
+    <!-- Circuit lines connecting dots can be simulated -->
+    <div class="line" style="top: 30.5%; left: 0; width: 20%;"></div>
+    <div class="line" style="top: 70.5%; right: 0; width: 70%;"></div>
+    <div class="dot" style="top: 30%; left: 20%;"></div>
+    <div class="dot" style="top: 70%; left: 30%;"></div>
+    <div class="dot" style="top: 40%; right: 10%;"></div>
+
+    <!-- Title Above -->
+    <div class="absolute top-12 left-0 w-full text-center z-20">
+        <h1 class="text-4xl font-normal tracking-wide">Login form</h1>
+        <h1 class="text-5xl font-bold text-red-600 mt-2">V5</h1>
+    </div>
+
+    <!-- Main Form Container -->
+    <div class="glass-panel w-full max-w-4xl mx-4 rounded-3xl flex flex-col md:flex-row min-h-[450px] mt-20 relative z-10">
+        
+        <!-- Left Side: Login Form -->
+        <div class="w-full md:w-1/2 p-10 md:p-14 flex flex-col justify-center relative z-20">
+            <h2 class="text-2xl font-bold mb-8 text-center tracking-wide">Login</h2>
+            
+            <form id="loginForm" class="space-y-5 max-w-sm mx-auto w-full">
+                <!-- Username -->
+                <div class="input-field flex items-center rounded-xl px-4 py-3">
+                    <i class="far fa-user text-red-500/70 mr-3 text-sm"></i>
+                    <input type="text" id="username" placeholder="Username" class="bg-transparent border-none outline-none w-full text-sm text-gray-200 placeholder-gray-500" required>
+                </div>
+                
+                <!-- Password -->
+                <div class="input-field flex items-center rounded-xl px-4 py-3">
+                    <i class="fas fa-lock text-red-500/70 mr-3 text-sm"></i>
+                    <input type="password" id="password" placeholder="Password" class="bg-transparent border-none outline-none w-full text-sm text-gray-200 placeholder-gray-500" required>
+                    <button type="button" id="togglePassword" class="text-gray-500 hover:text-red-400 transition-colors ml-2 cursor-pointer focus:outline-none">
+                        <i class="far fa-eye" id="eyeIcon"></i>
+                    </button>
+                </div>
+                
+                <!-- Login Button -->
+                <button type="submit" id="submitBtn" class="w-full mt-6 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-400 hover:to-red-500 text-white font-semibold py-3 rounded-full shadow-[0_0_20px_rgba(220,38,38,0.6)] transition-all duration-300 flex justify-center items-center">
+                    <span id="btnText">Login</span>
+                    <i class="fas fa-circle-notch fa-spin hidden ml-2" id="loadingSpinner"></i>
+                </button>
+                
+                <!-- Links -->
+                <div class="text-center text-xs text-gray-400 mt-4 space-y-2">
+                    <p>Don't have an account? <a href="#" class="text-white hover:text-red-400 font-semibold transition-colors">Sign Up</a></p>
+                    <p><a href="#" class="text-red-600 hover:text-red-400 font-semibold transition-colors">Forgot Password?</a></p>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Right Side: Welcome Text -->
+        <div class="w-full md:w-1/2 p-10 flex flex-col justify-center items-center relative hidden md:flex z-10">
+            <div class="right-overlay"></div>
+            <div class="relative z-20 text-center max-w-xs">
+                <h2 class="text-4xl font-extrabold mb-4 tracking-wider leading-tight text-white drop-shadow-lg">WELCOME<br>BACK!</h2>
+                <p class="text-gray-300 text-sm leading-relaxed mt-4 drop-shadow-md">To keep connected with us please login with your personal info.</p>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

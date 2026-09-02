@@ -1,0 +1,74 @@
+body {
+  background-color: #050000;
+  background-image: radial-gradient(circle at 50% 50%, #2a0000 0%, #050000 80%);
+  overflow: hidden;
+}
+
+/* Background Grid & Circuit elements */
+.bg-grid {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: 
+      linear-gradient(rgba(255, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 0;
+}
+
+.dot {
+  position: absolute;
+  width: 6px; height: 6px;
+  background: #ff3333;
+  border-radius: 50%;
+  box-shadow: 0 0 15px 2px #ff3333;
+  z-index: 1;
+}
+
+.line {
+  position: absolute;
+  height: 1px;
+  background: rgba(255, 50, 50, 0.3);
+  box-shadow: 0 0 10px rgba(255, 50, 50, 0.5);
+  z-index: 0;
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+  background: rgba(20, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 50, 50, 0.15);
+  box-shadow: 0 25px 50px -12px rgba(255, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+/* Angled Overlay for the Right Side */
+.right-overlay {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: -10%; /* Extend left slightly to create angle */
+  background: linear-gradient(135deg, rgba(30, 0, 0, 0.8), rgba(0,0,0,0.9));
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  border-left: 1px solid rgba(255, 50, 50, 0.15);
+}
+
+/* Input Fields */
+.input-field {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 50, 50, 0.2);
+  transition: all 0.3s ease;
+}
+
+.input-field:focus-within {
+  border-color: rgba(255, 50, 50, 0.8);
+  box-shadow: 0 0 12px rgba(255, 50, 50, 0.25);
+  background: rgba(20, 0, 0, 0.6);
+}
+
+/* Auto-fill styling fixes for dark mode */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 30px #1a0505 inset !important;
+  -webkit-text-fill-color: white !important;
+}
