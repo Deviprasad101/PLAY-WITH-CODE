@@ -1,0 +1,134 @@
+:root {
+  --bg-color: #0f1015;
+  --bulb-hue: 15; /* Orange/Red */
+  --filament-saturation: 100;
+  --fitting-lightness: 40;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--bg-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+.cradle {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+}
+
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: #333;
+  border-radius: 5px;
+  z-index: 10;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.bulbs {
+  display: flex;
+  position: relative;
+  top: 5px;
+}
+
+.bulb-wrapper {
+  position: relative;
+  width: 50px;
+  height: 250px;
+  transform-origin: top center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Hardware acceleration for smooth swing */
+  will-change: transform;
+}
+
+.string {
+  width: 2px;
+  height: 180px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.bulb-svg {
+  width: 50px;
+  height: 70px;
+  overflow: visible; /* To allow bloom to shine outside */
+  margin-top: -2px; /* Connect with string perfectly */
+}
+
+/* User's integrated CSS */
+.light-bulb__filament {
+  fill: none;
+  stroke: #444; /* Default off */
+  stroke-width: 2;
+  transition: stroke 0.1s ease;
+}
+
+.light-bulb__fitting {
+  fill: hsl(0, 0%, calc(var(--fitting-lightness) * 1%));
+}
+
+.light-bulb__fitting-shine {
+  fill: hsl(0, 0%, calc((var(--fitting-lightness) + 20) * 1%));
+}
+
+.light-bulb__bloom {
+  fill: hsl(var(--bulb-hue), 100%, 50%);
+  opacity: 0;
+  filter: blur(12px);
+  transition: opacity 0.1s ease;
+}
+
+.light-bulb__glass {
+  fill: rgba(255, 255, 255, 0.02);
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 2;
+  transition: fill 0.1s ease;
+}
+
+/* On State (Glowing) */
+.bulb-wrapper.on .light-bulb__filament {
+  stroke: hsl(var(--bulb-hue), 100%, 70%);
+}
+
+.bulb-wrapper.on .light-bulb__bloom {
+  opacity: 0.7;
+}
+
+.bulb-wrapper.on .light-bulb__glass {
+  fill: rgba(255, 100, 50, 0.1);
+}
+
+/* Controls */
+.controls {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  background: rgba(255,255,255,0.1);
+  padding: 10px 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+}
+
+[type='checkbox'] {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  accent-color: hsl(var(--bulb-hue), 100%, 50%);
+}
