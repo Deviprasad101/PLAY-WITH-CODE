@@ -1,0 +1,151 @@
+body {
+  background-color: #f3e5f5; /* Light purple background from image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.envelope-wrapper {
+  position: relative;
+  width: 280px;
+  height: 180px;
+  margin-bottom: 50px;
+  margin-top: 100px;
+}
+
+#envelope {
+  position: relative;
+  width: 280px;
+  height: 180px;
+  background-color: #f06a5a; /* Back of the envelope (darkest) */
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.front {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.flap {
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-top: 100px solid #ff7b70; /* Top flap */
+  border-bottom: 0;
+  top: 0;
+  left: 0;
+  transform-origin: top;
+  z-index: 4;
+  transition: transform 0.4s ease, z-index 0s 0.2s;
+}
+
+.pocket {
+  border-left: 140px solid #ff8a80; /* Side flaps */
+  border-right: 140px solid #ff8a80;
+  border-bottom: 90px solid #ff7b70; /* Bottom flap */
+  border-top: 90px solid transparent;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.letter {
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 250px;
+  height: 160px;
+  top: 10px;
+  left: 15px;
+  border-radius: 4px;
+  z-index: 2;
+  transition: transform 0.5s ease 0.1s;
+  padding: 20px 25px;
+  box-sizing: border-box;
+}
+
+.words {
+  font-family: 'Caveat', cursive; /* Handwritten font */
+  color: #333;
+}
+
+.line1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.line2 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.line3 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.line4 {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Open State Animations */
+.open .flap {
+  transform: rotateX(180deg);
+  z-index: 1; /* Moves behind the letter when opened */
+}
+
+.open .letter {
+  transform: translateY(-80px);
+}
+
+/* Buttons */
+.reset {
+  display: flex;
+  gap: 20px;
+}
+
+button {
+  padding: 12px 30px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid #e95950;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+#open {
+  background-color: #e95950;
+  color: white;
+}
+
+#reset {
+  background-color: transparent;
+  color: #e95950;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:hover {
+  opacity: 0.9;
+}
