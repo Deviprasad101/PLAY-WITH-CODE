@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Button UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Download Button Ui ✨</h1>
+    
+    <div class="buttons-grid">
+      
+      <!-- Neumorphic Section -->
+      <div class="label">Neumorphic<br>button</div>
+      <div class="button-container light-theme">
+        <div class="neumorphic-btn" id="neu-btn">
+          <svg class="progress-canvas" width="100" height="100">
+            <!-- Background circle (optional, but good for structure) -->
+            <circle cx="50" cy="50" r="46" fill="none" stroke="transparent" stroke-width="4" />
+            <!-- Animated progress ring -->
+            <circle class="progress-ring orange-ring" cx="50" cy="50" r="46" />
+          </svg>
+          <div class="icon-container">
+            <!-- Cloud Download Icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+              <path d="M12 12v5"/>
+              <path d="m9.5 14.5 2.5 2.5 2.5-2.5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="status-text" id="neu-text">58% Downloading...</div>
+      </div>
+
+      <!-- Neon Section -->
+      <div class="label">Neon button</div>
+      <div class="button-container dark-theme">
+        <div class="neon-btn" id="neon-btn">
+          <svg class="neon-canvas" width="160" height="160" viewBox="0 0 160 160">
+            <!-- Track -->
+            <circle class="bg-ring" cx="80" cy="80" r="70" />
+            <!-- Progress -->
+            <circle class="neon-progress-ring" cx="80" cy="80" r="70" />
+          </svg>
+          <div class="neon-content">
+            <!-- Download Arrow Icon -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 5px;">
+              <path d="M12 3v14"/>
+              <path d="m19 10-7 7-7-7"/>
+              <path d="M5 21h14"/>
+            </svg>
+            <div class="neon-text" id="neon-text">52%</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
