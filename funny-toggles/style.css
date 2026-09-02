@@ -1,0 +1,359 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Nunito', sans-serif; overflow: hidden; }
+
+/* The Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 50vh 50vh;
+    width: 100vw;
+    height: 100vh;
+}
+
+.cell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.label-text {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.6);
+    letter-spacing: 1px;
+}
+
+.toggle-checkbox { display: none; }
+
+.track {
+    width: 5em;
+    height: 2.5em;
+    background: #384358;
+    border-radius: 1.25em;
+    position: relative;
+    cursor: pointer;
+    display: block;
+}
+
+/* Background Colors matching the UI exactly */
+.gravity { grid-column: span 2; background: #cbe595; }
+.pancake { grid-column: span 2; background: #91e0d3; }
+.doggo   { grid-column: span 2; background: #c69ce5; }
+.kobe    { grid-column: span 3; background: #f3a19d; }
+.beer    { grid-column: span 3; background: #e9dc76; }
+
+
+/* =========================================
+   1. GRAVITY TOGGLE 
+========================================= */
+.gravity .track-vertical {
+    width: 2.5em;
+    height: 5em;
+    background: #384358;
+    border-radius: 1.25em;
+    position: relative;
+    cursor: pointer;
+    display: block;
+}
+.gravity .knob-vertical {
+    width: 2.5em;
+    height: 2.5em;
+    background: #2a3441;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+}
+#gravity-toggle:checked + .track-vertical .knob-vertical {
+    transform: translateY(2.5em); /* Falls down */
+}
+
+
+/* =========================================
+   2. PANCAKE STACKS TOGGLE 
+========================================= */
+.pancake .pancake-knob {
+    width: 2.5em;
+    height: 2.5em;
+    background: #f6ad55;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    transition: all 0.5s ease;
+    box-shadow: inset 0 -5px 0 #dd6b20;
+}
+.pancake .butter {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #faf089;
+    border-radius: 2px;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+    transition: transform 0.5s ease;
+}
+#pancake-toggle:checked + .track .pancake-knob {
+    transform: translate(2.5em, -6px);
+    /* Simulate a stack using box-shadows */
+    box-shadow: 
+        inset 0 -5px 0 #dd6b20,
+        0 -8px 0 -1px #f6ad55,
+        0 -13px 0 -1px #dd6b20;
+}
+#pancake-toggle:checked + .track .butter {
+    transform: translate(-50%, -10px);
+}
+
+
+/* =========================================
+   3. DOGGO TOGGLE (USING EXACT SNIPPET)
+========================================= */
+
+/* EXACT SNIPPET FROM IMAGE */
+.dog-rollover label:before {
+    content: none;
+}
+.dog-rollover label .dog {
+    display: inline-block;
+    position: absolute;
+    width: 2.5em;
+    height: 2.5em;
+    transition: 0.6s ease;
+    /* Added styles to complete the dog */
+    background: #fff;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+.dog-rollover label .eyes {
+    position: absolute;
+    background: #222;
+    border-radius: 50%;
+    transform: translate(8px, 14px);
+    /* Added styles to complete eyes */
+    width: 5px;
+    height: 5px;
+    box-shadow: 14px 0 0 #222; /* Second eye */
+    z-index: 3;
+}
+/* END SNIPPET */
+
+/* Additional Dog details */
+.dog .ear {
+    position: absolute;
+    width: 14px;
+    height: 18px;
+    background: #f6ad55;
+    border-radius: 50% 50% 0 0;
+    z-index: 1;
+}
+.dog .left-ear { left: 2px; top: -4px; transform: rotate(-30deg); }
+.dog .right-ear { right: 2px; top: -4px; transform: rotate(30deg); background: #fff; border: 1px solid #eee; }
+.dog .nose {
+    position: absolute;
+    width: 8px;
+    height: 5px;
+    background: #222;
+    border-radius: 50%;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.dog .tongue {
+    position: absolute;
+    width: 6px;
+    height: 8px;
+    background: #f472b6;
+    border-radius: 0 0 4px 4px;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+#dog-toggle:checked + label .dog {
+    transform: translateX(2.5em) rotate(360deg); /* The Roll Over! */
+}
+#dog-toggle:checked + label .dog .tongue {
+    opacity: 1; /* Reward */
+}
+
+
+/* =========================================
+   4. KOBE BRYANT TRIBUTE TOGGLE 
+========================================= */
+.kobe-container {
+    position: relative;
+    width: 12em;
+    height: 6em;
+    display: flex;
+    align-items: flex-end;
+}
+.kobe-track {
+    background: #f6ad55; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.basketball-x {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 2.5em;
+    height: 2.5em;
+    transition: transform 0.6s linear;
+    z-index: 5;
+    pointer-events: none;
+}
+.basketball-y {
+    width: 100%;
+    height: 100%;
+    background: #d97706;
+    border-radius: 50%;
+    border: 2px solid #222;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+/* Basketball Lines */
+.basketball-y::before { content: ''; position: absolute; width: 100%; height: 2px; background: #222; top: 50%; transform: translateY(-50%); }
+.basketball-y::after { content: ''; position: absolute; height: 100%; width: 2px; background: #222; left: 50%; transform: translateX(-50%); }
+.basketball-y .line1 { position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid #222; left: -60%; }
+.basketball-y .line2 { position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid #222; right: -60%; }
+
+/* Hoop */
+.hoop {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 4em;
+    height: 5em;
+}
+.backboard {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 8px;
+    height: 3.5em;
+    background: #fff;
+    border: 2px solid #e11d48;
+}
+.rim {
+    position: absolute;
+    right: 8px;
+    top: 2em;
+    width: 3em;
+    height: 6px;
+    background: #e11d48;
+    border-radius: 3px;
+}
+.net {
+    position: absolute;
+    right: 12px;
+    top: 2.2em;
+    width: 2.2em;
+    height: 2em;
+    border-left: 2px dashed #fff;
+    border-right: 2px dashed #fff;
+    border-bottom: 2px dashed #fff;
+    border-radius: 0 0 10px 10px;
+}
+
+#kobe-toggle:checked ~ .basketball-x {
+    transform: translateX(8em);
+}
+#kobe-toggle:checked ~ .basketball-x .basketball-y {
+    animation: arc-y-kobe 0.6s cubic-bezier(0.3, 0.9, 0.7, 1) forwards;
+}
+@keyframes arc-y-kobe {
+    0% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-5em) rotate(180deg); }
+    100% { transform: translateY(-0.5em) rotate(360deg); } /* Swish */
+}
+
+
+/* =========================================
+   5. BEER PONG TOGGLE 
+========================================= */
+.beer-container {
+    position: relative;
+    width: 12em;
+    height: 5em;
+    display: flex;
+    align-items: flex-end;
+}
+.beer .track {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.ball-x {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 2.5em;
+    height: 2.5em;
+    transition: transform 0.6s linear;
+    z-index: 5;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ball-y {
+    width: 1.6em;
+    height: 1.6em;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: inset -4px -4px 6px rgba(0,0,0,0.2);
+}
+.cup {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 3.5em;
+    height: 4em;
+    z-index: 6; /* cup goes over ball when it lands inside */
+}
+.cup-rim {
+    width: 100%;
+    height: 8px;
+    background: #ef4444;
+    border-radius: 4px;
+    border-bottom: 2px solid #b91c1c;
+    position: relative;
+    z-index: 2;
+}
+.cup-body {
+    width: 3em;
+    height: 3.5em;
+    background: #ef4444;
+    margin: 0 auto;
+    clip-path: polygon(10% 0, 90% 0, 80% 100%, 20% 100%);
+    box-shadow: inset -10px 0 10px rgba(0,0,0,0.1);
+}
+
+#beer-toggle:checked ~ .ball-x {
+    transform: translateX(8.5em);
+    z-index: 4; /* Drops behind the front of the cup */
+}
+#beer-toggle:checked ~ .ball-x .ball-y {
+    animation: ping-pong-y 0.6s linear forwards;
+}
+@keyframes ping-pong-y {
+    0% { transform: translateY(0); }
+    30% { transform: translateY(-4em); animation-timing-function: ease-in; }
+    55% { transform: translateY(0); animation-timing-function: ease-out; }
+    75% { transform: translateY(-1.5em); animation-timing-function: ease-in; }
+    100% { transform: translateY(-1em); } /* Sinks into cup */
+}

@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Twilight sky gradient matching the image */
+  background: linear-gradient(to bottom, #111b3d 0%, #202b54 40%, #5d4850 70%, #d99a68 100%);
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  font-family: sans-serif;
+}
+
+/* Starry Sky using the exact CSS trick from the snippet */
+body:before {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-conic-gradient(#FFF9 0%, #fff0 .000075%, #fff0 .0005%, #fff0 .12345%);
+  filter: blur(0.5px) drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff);
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* From the snippet */
+.content {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* --- The Ground --- */
+.ground {
+  position: absolute;
+  bottom: -15vh;
+  left: -25vw;
+  width: 150vw;
+  height: 30vh;
+  background: #252836;
+  border-radius: 50% 50% 0 0;
+  z-index: 1;
+}
+
+/* The circular pool of light cast on the ground */
+.light-pool {
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65vw;
+  height: 14vh;
+  background: radial-gradient(ellipse at center, rgba(255, 230, 130, 0.45) 0%, rgba(255, 230, 130, 0) 70%);
+  z-index: 2;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* --- The Buildings (Silhouettes) --- */
+.cityscape {
+  position: absolute;
+  bottom: 15vh; /* Resting on the ground */
+  left: 0;
+  width: 100%;
+  height: 40vh;
+  z-index: 0;
+}
+
+.building {
+  position: absolute;
+  bottom: 0;
+  background: #131722; /* Dark silhouette */
+}
+
+/* Left building with standard roof */
+.b1 {
+  left: 2%;
+  width: 30%;
+  height: 55%;
+  clip-path: polygon(0 30%, 50% 0, 100% 30%, 100% 100%, 0 100%);
+}
+
+/* Center building with giant peak behind the lamp */
+.b2 {
+  left: 28%;
+  width: 44%;
+  height: 80%;
+  clip-path: polygon(0 100%, 0 45%, 35% 45%, 50% 15%, 65% 45%, 100% 45%, 100% 100%);
+}
+
+/* Right building blocky style */
+.b3 {
+  right: 2%;
+  width: 35%;
+  height: 60%;
+  clip-path: polygon(0 20%, 20% 0, 80% 0, 100% 20%, 100% 100%, 0 100%);
+}
+
+/* Glowing Windows using box-shadow for a 2x2 grid */
+.window {
+  position: absolute;
+  width: 10px;
+  height: 14px;
+  background: #ffeb99;
+  box-shadow: 16px 0 0 #ffeb99, 0 20px 0 #ffeb99, 16px 20px 0 #ffeb99;
+  opacity: 0.8;
+}
+
+.w1 { top: 50%; left: 30%; }
+.w2 { top: 75%; left: 60%; }
+.w3 { top: 40%; left: 20%; }
+.w4 { top: 65%; left: 70%; }
+
+
+/* --- The Street Lamp --- */
+.street-lamp {
+  position: absolute;
+  bottom: 7vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.light-beam {
+  position: absolute;
+  top: 25px; /* Originates precisely from the bulb */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70vw;
+  height: 65vh;
+  background: linear-gradient(to bottom, rgba(255, 230, 130, 0.65) 0%, rgba(255, 230, 130, 0.1) 80%, transparent 100%);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lamp-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Top cap of the lamp */
+.lamp-top {
+  width: 40px;
+  height: 15px;
+  background: #0f111a;
+  clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);
+}
+
+.lamp-bulb-wrapper {
+  position: relative;
+}
+
+/* Glow effect behind the bulb */
+.lamp-bulb-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px; 
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 230, 130, 0.8);
+  filter: blur(12px);
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+/* The bulb itself */
+.lamp-bulb {
+  width: 30px;
+  height: 35px;
+  background: #fff5cc;
+  clip-path: polygon(0 0, 100% 0, 75% 100%, 25% 100%);
+  cursor: pointer;
+  transition: background 0.3s;
+  position: relative;
+}
+
+.lamp-bulb:hover {
+  background: #ffffff;
+}
+
+.lamp-bottom {
+  width: 20px;
+  height: 8px;
+  background: #0f111a;
+}
+
+.lamp-crossbar {
+  position: absolute;
+  bottom: -4px;
+  width: 50px;
+  height: 4px;
+  background: #0f111a;
+  border-radius: 2px;
+}
+
+.lamp-pole {
+  width: 10px;
+  height: 35vh;
+  background: #0f111a;
+  z-index: 1;
+}
+
+.lamp-base {
+  width: 36px;
+  height: 60px;
+  background: #0f111a;
+  border-radius: 6px 6px 0 0;
+  margin-top: -10px; /* Blend seamlessly with the pole */
+  z-index: 1;
+}
+
+
+/* --- Interactivity: Lamp Off State --- */
+body.lamp-off .light-beam,
+body.lamp-off .light-pool {
+  opacity: 0;
+}
+
+body.lamp-off .lamp-bulb-wrapper::before {
+  opacity: 0;
+}
+
+body.lamp-off .lamp-bulb {
+  background: #444; /* Bulb goes dark */
+}

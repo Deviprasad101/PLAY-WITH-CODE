@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developers Birthday Wish</title>
+    <!-- Importing gorgeous fonts to mimic the mystical UI text -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <!-- Floral Wreath SVG Background -->
+        <div class="wreath-container">
+            <svg class="wreath" viewBox="-250 -250 500 500" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <!-- Reusable Leaf -->
+                  <g id="leaf">
+                    <path d="M 0,0 Q 15,-10 30,0 Q 15,10 0,0" fill="#6bc2bb"/>
+                  </g>
+                  
+                  <!-- Reusable Peach Flower -->
+                  <g id="flower">
+                    <!-- Back petals -->
+                    <path d="M 0,0 C -15,-20 -25,-40 -10,-45 C 0,-30 0,-15 0,0" fill="#f7c2b5"/>
+                    <path d="M 0,0 C 15,-20 25,-40 10,-45 C 0,-30 0,-15 0,0" fill="#f7c2b5"/>
+                    <!-- Front petal -->
+                    <path d="M 0,0 C -10,-30 -15,-50 0,-55 C 15,-50 10,-30 0,0" fill="#fce4dd"/>
+                    <!-- Stamens -->
+                    <path d="M 0,0 L -6,-35 M 0,0 L 0,-40 M 0,0 L 6,-35" fill="none" stroke="#e8a896" stroke-width="1.5"/>
+                    <circle cx="-6" cy="-35" r="2" fill="#f1c40f"/>
+                    <circle cx="0" cy="-40" r="2" fill="#f1c40f"/>
+                    <circle cx="6" cy="-35" r="2" fill="#f1c40f"/>
+                  </g>
+                  
+                  <!-- Left side of the wreath -->
+                  <g id="half-wreath">
+                    <!-- Main stem curve -->
+                    <path d="M 0,200 C -150,220 -250,50 -120,-180" fill="none" stroke="#6bc2bb" stroke-width="3.5" stroke-linecap="round"/>
+                    
+                    <!-- Leaves attached to stem pointing outwards -->
+                    <use href="#leaf" transform="translate(-65, 195) rotate(165) scale(1.8)"/>
+                    <use href="#leaf" transform="translate(-130, 160) rotate(145) scale(1.5)"/>
+                    <use href="#leaf" transform="translate(-175, 105) rotate(125) scale(1.3)"/>
+                    <use href="#leaf" transform="translate(-200, 40) rotate(100) scale(1.2)"/>
+                    <use href="#leaf" transform="translate(-190, -30) rotate(80) scale(1.1)"/>
+                    <use href="#leaf" transform="translate(-160, -100) rotate(60) scale(1)"/>
+                    <use href="#leaf" transform="translate(-140, -150) rotate(45) scale(0.9)"/>
+                    
+                    <!-- Leaves attached to stem pointing inwards -->
+                    <use href="#leaf" transform="translate(-100, 180) rotate(-15) scale(1.4)"/>
+                    <use href="#leaf" transform="translate(-155, 130) rotate(-35) scale(1.2)"/>
+                    <use href="#leaf" transform="translate(-190, 70) rotate(-55) scale(1.1)"/>
+                    <use href="#leaf" transform="translate(-195, 0) rotate(-75) scale(1)"/>
+                    <use href="#leaf" transform="translate(-175, -70) rotate(-95) scale(0.9)"/>
+                    
+                    <!-- Big Peach Flower Branch -->
+                    <path d="M -180, 20 Q -140, 25 -110, -10" fill="none" stroke="#6bc2bb" stroke-width="2.5"/>
+                    <use href="#flower" transform="translate(-110, -10) rotate(25) scale(1.5)"/>
+                    
+                    <!-- Top White Bud -->
+                    <g transform="translate(-125, -180) rotate(25) scale(1)">
+                      <path d="M 0,0 C -12,-12 -18,-30 0,-35 C 18,-30 12,-12 0,0" fill="#ffffff"/>
+                      <path d="M 0,5 L -8,-12 M 0,5 L 8,-12" fill="none" stroke="#6bc2bb" stroke-width="2"/>
+                    </g>
+                  </g>
+                </defs>
+                
+                <!-- Draw Left Wreath -->
+                <use href="#half-wreath"/>
+                <!-- Draw Right Wreath (Flipped horizontally perfectly symmetrical) -->
+                <use href="#half-wreath" transform="scale(-1, 1)"/>
+            </svg>
+        </div>
+
+        <!-- Text Content -->
+        <div class="content">
+            <h3 class="small-text">HAPPY</h3>
+            <h1 class="fire-text">BIRTHDAY</h1>
+            <h3 class="small-text">TO YOU</h3>
+        </div>
+    </div>
+</body>
+</html>

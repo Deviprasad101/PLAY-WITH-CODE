@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #25262a; /* Dark retro background */
+}
+
+.container {
+  position: relative;
+}
+
+/* Form element resets */
+.calculator {
+  position: relative;
+  background: #2d2f33; /* Calculator body */
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 
+      12px 12px 25px rgba(0,0,0,0.5),
+      -8px -8px 20px rgba(255,255,255,0.03);
+  display: grid;
+  grid-template-columns: repeat(4, 65px);
+  grid-auto-rows: 65px;
+  gap: 12px;
+  border: none;
+  outline: none;
+}
+
+/* The LCD Screen */
+.calculator .value {
+  grid-column: span 4;
+  height: 85px;
+  width: 100%;
+  border: none;
+  background: #a9b596; /* Pale LCD green */
+  border-radius: 8px;
+  box-shadow: inset 0px 5px 15px rgba(0,0,0,0.25);
+  text-align: right;
+  padding: 10px 20px;
+  font-size: 32px;
+  color: #222;
+  margin-bottom: 10px;
+  outline: none;
+  text-shadow: 1px 1px 0px rgba(255,255,255,0.2);
+}
+
+/* Standard Buttons */
+.calculator .num {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #33353a;
+  border-radius: 8px;
+  box-shadow: 
+      -4px -4px 10px rgba(255,255,255,0.03),
+      4px 4px 10px rgba(0,0,0,0.4);
+  cursor: pointer;
+  user-select: none;
+  font-size: 22px;
+  color: #aaa;
+  transition: box-shadow 0.1s, color 0.1s;
+}
+
+.calculator .num:active {
+  box-shadow: 
+      inset -4px -4px 10px rgba(255,255,255,0.02),
+      inset 4px 4px 10px rgba(0,0,0,0.4);
+  color: #fff;
+}
+
+.calculator .num i {
+  font-style: normal;
+}
+
+/* Clear Button (Red, wide) */
+.calculator .clear {
+  grid-column: span 2;
+  background: #d95a53;
+  color: #fff;
+  box-shadow: 
+      -4px -4px 10px rgba(255,255,255,0.05),
+      4px 4px 10px rgba(0,0,0,0.3);
+}
+
+.calculator .clear:active {
+  box-shadow: 
+      inset -4px -4px 10px rgba(255,255,255,0.1),
+      inset 4px 4px 10px rgba(0,0,0,0.4);
+}
+
+/* Plus Button (Tall) */
+.calculator .plus {
+  grid-row: span 2;
+}
+
+/* Equals Button (Blue) */
+.calculator .equal {
+  background: #578bd6;
+  color: #fff;
+  box-shadow: 
+      -4px -4px 10px rgba(255,255,255,0.05),
+      4px 4px 10px rgba(0,0,0,0.3);
+}
+
+.calculator .equal:active {
+  box-shadow: 
+      inset -4px -4px 10px rgba(255,255,255,0.1),
+      inset 4px 4px 10px rgba(0,0,0,0.4);
+}

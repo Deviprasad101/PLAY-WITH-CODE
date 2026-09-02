@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Street Lamp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content">
+        <!-- Background Buildings -->
+        <div class="cityscape">
+            <div class="building b1">
+                <div class="window w1"></div>
+                <div class="window w2"></div>
+            </div>
+            <div class="building b2"></div>
+            <div class="building b3">
+                <div class="window w3"></div>
+                <div class="window w4"></div>
+            </div>
+        </div>
+
+        <!-- Ground Plane -->
+        <div class="ground"></div>
+        <div class="light-pool" id="lightPool"></div>
+
+        <!-- Street Lamp -->
+        <div class="street-lamp">
+            <!-- Light Beam -->
+            <div class="light-beam" id="lightBeam"></div>
+            
+            <!-- Lamp Construction -->
+            <div class="lamp-head">
+                <div class="lamp-top"></div>
+                <div class="lamp-bulb-wrapper">
+                    <div class="lamp-bulb" id="bulb" title="Click to toggle light!"></div>
+                </div>
+                <div class="lamp-bottom"></div>
+                <div class="lamp-crossbar"></div>
+            </div>
+            <div class="lamp-pole"></div>
+            <div class="lamp-base"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  background: #333333; /* Dark aesthetic background */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+  margin-top: 8vh;
+  font-size: 32px;
+  color: #ffffff;
+  font-style: italic;
+  letter-spacing: 1.5px;
+  font-weight: 300;
+  z-index: 100;
+}
+
+/* 
+* EXACT CSS FROM THE SNIPPET 
+* Target: body ul:nth-child(2) li 
+*/
+
+body ul:nth-child(2) {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+body ul:nth-child(2) li {
+  position: absolute;
+  top: 20vh;
+  right: 50%;
+  width: 0.0625rem;
+  /* Added dynamic length via CSS variables from JS */
+  height: var(--length); 
+  
+  background: linear-gradient(
+      rgba(46, 204, 113, 0),
+      rgba(46, 204, 113, 0.25)
+  );
+  list-style: none;
+  transform-origin: 50% 0;
+  animation: swing 4s ease-in-out infinite;
+  
+  /* Applying Z-index for 3D depth effect */
+  z-index: var(--z); 
+}
+
+/* Ornaments (Dots at the end of the branches) */
+body ul:nth-child(2) li::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background: var(--color);
+  box-shadow: 0 0 6px var(--color);
+}
+
+/* The Swing Animation */
+@keyframes swing {
+  0%, 100% {
+      /* Uses the base angle defined in JS and sweeps back and forth */
+      transform: rotate(calc(var(--angle) - 6deg));
+  }
+  50% {
+      transform: rotate(calc(var(--angle) + 6deg));
+  }
+}
+
+/* The Star at the top of the tree */
+.star {
+  position: absolute;
+  top: calc(20vh - 15px); /* Centers the 30px star perfectly on the origin */
+  left: 50%;
+  margin-left: -15px; 
+  z-index: 1000;
+  filter: drop-shadow(0 0 10px #f1c40f);
+  transform-origin: 50% 50%;
+  animation: swing-star 4s ease-in-out infinite;
+}
+
+@keyframes swing-star {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(6deg); }
+}

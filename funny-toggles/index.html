@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funny Toggles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="grid">
+        
+        <!-- 1. GRAVITY -->
+        <div class="cell gravity">
+            <div class="toggle-wrapper">
+                <input type="checkbox" id="gravity-toggle" class="toggle-checkbox">
+                <label for="gravity-toggle" class="track-vertical">
+                    <div class="knob-vertical"></div>
+                </label>
+            </div>
+            <span class="label-text">GRAVITY</span>
+        </div>
+
+        <!-- 2. PANCAKE STACKS -->
+        <div class="cell pancake">
+            <div class="toggle-wrapper">
+                <input type="checkbox" id="pancake-toggle" class="toggle-checkbox">
+                <label for="pancake-toggle" class="track">
+                    <div class="pancake-knob">
+                        <div class="butter"></div>
+                    </div>
+                </label>
+            </div>
+            <span class="label-text">PANCAKE STACKS</span>
+        </div>
+
+        <!-- 3. DOGGO (USING EXACT SNIPPET) -->
+        <div class="cell doggo dog-rollover">
+            <div class="toggle-wrapper">
+                <input type="checkbox" id="dog-toggle" class="toggle-checkbox">
+                <label for="dog-toggle" class="track">
+                    <div class="dog">
+                        <div class="ear left-ear"></div>
+                        <div class="ear right-ear"></div>
+                        <div class="eyes"></div>
+                        <div class="nose"></div>
+                        <div class="tongue"></div>
+                    </div>
+                </label>
+            </div>
+            <span class="label-text">DOGGO WANTS A TREAT</span>
+        </div>
+
+        <!-- 4. KOBE BRYANT TRIBUTE -->
+        <div class="cell kobe">
+            <div class="kobe-container">
+                <input type="checkbox" id="kobe-toggle" class="toggle-checkbox">
+                <label for="kobe-toggle" class="track kobe-track"></label>
+                
+                <!-- Separating X and Y animations for the curved trajectory -->
+                <div class="basketball-x">
+                    <div class="basketball-y">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                    </div>
+                </div>
+                
+                <div class="hoop">
+                    <div class="backboard"></div>
+                    <div class="rim"></div>
+                    <div class="net"></div>
+                </div>
+            </div>
+            <span class="label-text">KOBE BRYANT TRIBUTE</span>
+        </div>
+
+        <!-- 5. BEER PONG -->
+        <div class="cell beer">
+            <div class="beer-container">
+                <input type="checkbox" id="beer-toggle" class="toggle-checkbox">
+                <label for="beer-toggle" class="track"></label>
+                
+                <div class="ball-x">
+                    <div class="ball-y"></div>
+                </div>
+                
+                <div class="cup">
+                    <div class="cup-rim"></div>
+                    <div class="cup-body"></div>
+                </div>
+            </div>
+            <span class="label-text">BEER PONG</span>
+        </div>
+
+    </div>
+</body>
+</html>

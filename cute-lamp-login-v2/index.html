@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute Lamp Login V2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- SVG Lamp Character Section -->
+        <div class="lamp-section">
+            <svg width="300" height="400" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+                <!-- Light Beam -->
+                <polygon id="beam" points="75,160 225,160 300,400 0,400" fill="url(#beamGradient)" />
+                
+                <!-- Stand Back Leg -->
+                <line x1="145" y1="200" x2="100" y2="340" stroke="#e2e6eb" stroke-width="6" stroke-linecap="round" />
+                
+                <!-- Stand Main Pole -->
+                <rect x="145" y="160" width="10" height="180" fill="#e2e6eb" />
+                
+                <!-- Base -->
+                <ellipse cx="150" cy="340" rx="45" ry="12" fill="#b0b5bc" />
+                <ellipse cx="150" cy="336" rx="45" ry="12" fill="#e2e6eb" />
+                
+                <!-- Lampshade Back Interior -->
+                <path d="M 75,160 Q 150,145 225,160 Q 150,175 75,160" fill="#fffae6" />
+                
+                <!-- Lampshade Exterior -->
+                <path d="M 100,50 L 200,50 C 215,50 220,100 225,160 Q 150,175 75,160 C 80,100 85,50 100,50 Z" fill="#7a818c" />
+                
+                <!-- Cute Face -->
+                <g id="face" transform="translate(0, -10)">
+                  <!-- Eyes -->
+                  <path id="eye-l" d="M 115,130 Q 120,122 125,130" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" />
+                  <path id="eye-r" d="M 175,130 Q 180,122 185,130" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" />
+                  
+                  <!-- Mouth -->
+                  <path id="mouth" d="M 140,135 Q 150,150 160,135 Z" fill="#222" />
+                  <!-- Tongue -->
+                  <path id="tongue" d="M 145,140 Q 150,148 155,140 Z" fill="#ff7675" />
+                </g>
+                
+                <defs>
+                  <linearGradient id="beamGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(255, 255, 255, 0.25)" />
+                    <stop offset="100%" stop-color="rgba(255, 255, 255, 0)" />
+                  </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <!-- Login Form Section -->
+        <div class="login-section">
+            <div class="login-card">
+                <h2>Welcome Back</h2>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label>Username</label>
+                        <input type="text" id="username" placeholder="Enter your username" autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" id="password" placeholder="Enter your password">
+                    </div>
+                    <!-- Button matching the exact CSS snippet provided -->
+                    <button type="button" class="login-btn">Login</button>
+                </form>
+                <a href="#" class="forgot-link">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

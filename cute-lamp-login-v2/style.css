@@ -1,0 +1,155 @@
+:root {
+  --bg-color: #22252a;
+  --card-bg: #2d3038;
+  --text-color: #fff;
+  --label-color: #8a8d93;
+  --input-bg: #22252a;
+  
+  /* Variables used by the code snippet */
+  --glow-color: #5c89ca;
+  --glow-color-dark: #3a5c8c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 40px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.lamp-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 400px;
+}
+
+/* Smooth transition for the SVG paths so the face morphs cutely */
+#face path {
+  transition: d 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.login-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.login-card {
+  background: var(--card-bg);
+  padding: 40px 30px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 350px;
+  /* Soft blue glow around the form */
+  box-shadow: 0 0 25px rgba(92, 137, 202, 0.3); 
+}
+
+.login-card h2 {
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  color: var(--label-color);
+  font-size: 12px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  background: var(--input-bg);
+  border: 1px solid #3c4048;
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  border-color: var(--glow-color);
+}
+
+.input-group input::placeholder {
+  color: #555;
+}
+
+.forgot-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: var(--label-color);
+  text-decoration: none;
+  font-size: 12px;
+  transition: color 0.3s;
+}
+
+.forgot-link:hover {
+  color: var(--glow-color);
+}
+
+/* 
+* EXACT CSS PROVIDED IN THE SNIPPET 
+*/
+.login-btn {
+  width: 100%;
+  padding: 0.875rem;
+  background: linear-gradient(
+      135deg,
+      var(--glow-color),
+      var(--glow-color-dark)
+  );
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin-top: 0.5rem;
+}
+
+/* Added a hover effect to compliment the snippet */
+.login-btn:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(92, 137, 202, 0.4);
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column;
+      gap: 20px;
+  }
+}

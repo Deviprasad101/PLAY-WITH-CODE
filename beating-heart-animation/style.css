@@ -1,0 +1,58 @@
+/* From the code snippet in the image */
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    
+    background-color: #371B1B;
+    overflow: hidden;
+}
+
+/* Heart Container with Global Beating Animation */
+#heart-container {
+    width: 400px;
+    height: 450px;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+    /* The lub-dub heartbeat animation */
+    animation: heartbeat 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+@keyframes heartbeat {
+    0%   { transform: scale(0.95); }
+    15%  { transform: scale(1.05); }
+    30%  { transform: scale(0.95); }
+    45%  { transform: scale(1.02); }
+    60%  { transform: scale(0.95); }
+    100% { transform: scale(0.95); }
+}
+
+/* Individual Low-Poly Triangles */
+polygon {
+    stroke: rgba(0,0,0,0.1);
+    stroke-width: 0.5;
+    /* This adds a slight organic jiggle to the polygons during the beat */
+    animation: poly-beat 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+@keyframes poly-beat {
+    0%, 60%, 100% { transform: scale(1); }
+    15% { transform: scale(1.02) translate(1px, -1px); }
+    45% { transform: scale(1.01) translate(-1px, 1px); }
+}

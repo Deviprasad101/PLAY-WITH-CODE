@@ -1,0 +1,245 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #7C3AED;      /* full purple plain */
+  --bg2: #8B5CF6;     /* lighter purple */
+  --cube1: #FF6B6B;   /* Red shades from snippet */
+  --cube2: #FF8787;
+  --cube3: #e03131;
+  --accent: #FF3B3B;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg);
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Background Horizon and Glow */
+.horizon {
+  position: absolute;
+  bottom: 30%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.2);
+  z-index: 1;
+}
+
+.glow-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to bottom, var(--bg2), #5b21b6);
+  z-index: 1;
+}
+
+/* -----------------------------
+ * 3D CUBE ANIMATION
+ * ----------------------------- */
+.cube-scene {
+  position: absolute;
+  left: 25%;
+  bottom: 30%; /* Matches horizon */
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px;
+  perspective: 1000px;
+  z-index: 10;
+}
+
+.shadow {
+  position: absolute;
+  bottom: -20px;
+  left: 10px;
+  width: 100px;
+  height: 25px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  filter: blur(8px);
+  animation: shadowScale 2s infinite ease-in-out;
+}
+
+.cube-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  animation: bounce 2s infinite ease-in-out;
+  bottom: 0;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  animation: rotateCube 6s infinite linear;
+}
+
+.face {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 0.95;
+  border-radius: 10px; /* Smooth cube edges */
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.1);
+}
+
+.front  { transform: rotateY(  0deg) translateZ(60px); background: var(--cube1); }
+.back   { transform: rotateY(180deg) translateZ(60px); background: var(--cube2); }
+.right  { transform: rotateY( 90deg) translateZ(60px); background: var(--cube3); }
+.left   { transform: rotateY(-90deg) translateZ(60px); background: var(--cube2); }
+.top    { transform: rotateX( 90deg) translateZ(60px); background: var(--cube1); }
+.bottom { transform: rotateX(-90deg) translateZ(60px); background: var(--cube3); }
+
+/* Keyframes */
+@keyframes rotateCube {
+  0% { transform: rotateX(-20deg) rotateY(0deg); }
+  100% { transform: rotateX(-20deg) rotateY(360deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(-10px); }
+  50% { transform: translateY(-150px); }
+}
+
+@keyframes shadowScale {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(0.5); opacity: 0.2; }
+}
+
+/* -----------------------------
+ * LOGIN FORM
+ * ----------------------------- */
+.form-wrapper {
+  position: absolute;
+  right: 15%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  padding: 50px 40px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.login-box h2 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.login-box p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  margin-bottom: 35px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  outline: none;
+  background: transparent;
+  transition: border-color 0.3s;
+}
+
+.input-group label {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+  top: -20px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.input-group input:focus {
+  border-bottom: 2px solid #fff;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.options a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 500;
+}
+
+.options a:hover {
+  color: var(--cube2);
+}
+
+.btn {
+  width: 100%;
+  padding: 15px;
+  background: #fff;
+  color: var(--bg);
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  background: var(--cube1);
+  color: #fff;
+}

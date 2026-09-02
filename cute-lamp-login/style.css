@@ -1,0 +1,208 @@
+/* Color Palette & Variables */
+:root {
+  --cord: #888;
+  --tongue: #ff4d4d;
+  --bg-dark: #121418;
+  --bg-light: #1f2229;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-dark);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.4s ease;
+}
+
+/* When the lamp is turned on */
+body.light-on {
+  background-color: var(--bg-light);
+}
+
+.container {
+  display: flex;
+  width: 800px;
+  max-width: 90%;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* -----------------------------
+ * LEFT SIDE: LAMP CHARACTER
+ * ----------------------------- */
+.lamp-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 40px;
+}
+
+/* From the snippet in the image */
+.lamp {
+  display: block;
+  height: 40vmin;
+  overflow: visible !important;
+}
+
+.cord {
+  stroke: var(--cord);
+}
+
+/* From snippet (not strictly used since we animate the group, but included for accuracy) */
+.cord--rig {
+  display: none;
+}
+
+.cord-group {
+  transition: transform 0.15s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.knob {
+  cursor: pointer;
+  transition: fill 0.3s;
+}
+
+.knob:hover {
+  fill: #777;
+}
+
+/* When the user clicks the cord */
+.lamp-section.pulling .cord-group {
+  transform: translateY(15px);
+}
+
+.light-beam {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+body.light-on .light-beam {
+  opacity: 1;
+}
+
+.shade-inside {
+  transition: fill 0.4s;
+}
+
+body.light-on .shade-inside {
+  fill: #ffea00;
+}
+
+.eyes {
+  transition: opacity 0.2s;
+}
+
+.lamp__tongue {
+  fill: var(--tongue);
+  transition: opacity 0.3s;
+}
+
+/* -----------------------------
+ * RIGHT SIDE: LOGIN FORM
+ * ----------------------------- */
+.form-section {
+  flex: 1;
+  padding: 50px 40px;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-box h2 {
+  font-size: 32px;
+  margin: 0 0 5px;
+  color: #fff;
+}
+
+.login-box p {
+  color: #888;
+  margin: 0 0 35px;
+  font-size: 14px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-group i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  transition: color 0.3s;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px 15px 15px 45px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  background: #1a1c22;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  border-color: #555;
+  background: #22242a;
+}
+
+.input-group input:focus + i {
+  color: #ccc;
+}
+
+/* Form Footer & Button styles from snippet */
+.login-btn {
+  width: 100%;
+  padding: 15px;
+  background: #fff;
+  color: #111;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.3s;
+  
+  /* 3D Button Effect */
+  transform: translateY(-4px);
+  box-shadow: 0 4px 0 #ccc;
+}
+
+.login-btn:active {
+  transform: translateY(0); /* Snippet exactly requested this */
+  box-shadow: 0 0px 0 #ccc;
+}
+
+.form-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.forgot-link {
+  color: #888;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.forgot-link:hover {
+  color: #fff;
+}

@@ -1,0 +1,112 @@
+/* style.css */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* Pure black to make neon pop */
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+#stage {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Panel Styles (Based on the screenshot) */
+#panel {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  background: rgba(20, 20, 30, 0.85);
+  border: 1px solid rgba(100, 150, 255, 0.2);
+  border-radius: 12px;
+  width: 320px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px 12px 0 0;
+}
+
+.panel-title {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  color: #00ffff;
+  text-transform: uppercase;
+}
+
+#btnHide {
+  background: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.2s;
+  padding: 0;
+}
+
+#btnHide:hover {
+  color: #fff;
+}
+
+.panel-body {
+  padding: 20px;
+  transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+  max-height: 200px; /* For animation */
+  overflow: hidden;
+}
+
+.panel-body.collapsed {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+}
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-row button {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 10px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.btn-row button:hover {
+  background: rgba(0, 255, 255, 0.15);
+  border-color: #00ffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+}
+
+.btn-row button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}

@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  /* Beautiful winter sky gradient to match the image's background */
+  background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);
+  overflow: hidden;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 
+* EXACT CSS SNIPPET PROVIDED
+* Applied to the UI control buttons as the properties (padding, cursor: pointer, border-radius) 
+* clearly indicate button styling rather than visual snowflake styling.
+*/
+.snowflake {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+/* Enhancing the snippet with a hover state for better UX */
+.snowflake:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 1);
+}
+
+.controls {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  gap: 15px;
+}
+
+/* 
+* Visual Snowflake Particles
+* Designed to match the glowing, scattered snowflakes in the image
+*/
+.snow-particle {
+  position: absolute;
+  top: -50px;
+  color: #ffffff;
+  user-select: none;
+  pointer-events: none; /* Let clicks pass through to background */
+  /* Glowing effect matching the bright dots in the screenshot */
+  text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
+  z-index: 10;
+}
+
+@keyframes fall {
+  0% {
+      top: -50px;
+      opacity: 1;
+  }
+  100% {
+      top: 105vh;
+      opacity: 0.1;
+  }
+}
+
+@keyframes sway {
+  0% {
+      transform: translateX(-30px) rotate(0deg);
+  }
+  100% {
+      transform: translateX(30px) rotate(360deg);
+  }
+}
