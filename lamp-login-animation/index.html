@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lamp Login Animation V2</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen flex items-center justify-center bg-[#0d0d0d] text-white overflow-hidden relative font-sans">
+
+  <!-- Title -->
+  <div class="absolute top-8 w-full text-center z-20">
+    <h1 class="text-3xl font-light tracking-wide text-gray-200">Lamp Login</h1>
+    <h2 class="text-4xl font-bold text-yellow-400 mt-1">Animation V2</h2>
+  </div>
+
+  <!-- Background particles (fireflies) -->
+  <div id="particles"></div>
+
+  <!-- Main Container -->
+  <div class="container max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center md:justify-around px-8 relative z-10 mt-16 h-full">
+    
+    <!-- Left Side: Interactive Lamp -->
+    <div class="w-full md:w-1/2 flex justify-center relative lamp-wrapper h-[450px]">
+      <div class="lamp">
+        <!-- Lamp Head & Bulb -->
+        <div class="lamp-head"></div>
+        <div class="lamp-bulb" id="bulb"></div>
+        
+        <!-- Pull String Switch -->
+        <div class="pull-string" id="pullString" title="Pull me!">
+          <div class="string"></div>
+          <div class="knob" id="knob"></div>
+        </div>
+        
+        <!-- Lamp Body -->
+        <div class="lamp-pole"></div>
+        <div class="lamp-base"></div>
+        
+        <!-- Light Beam -->
+        <div class="light-beam" id="beam"></div>
+      </div>
+    </div>
+
+    <!-- Right Side: Login Form -->
+    <div class="w-full md:w-1/2 flex justify-center z-20">
+      <div class="bg-[#121212]/90 backdrop-blur-xl p-8 rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.8)] border border-gray-800/60 w-full max-w-md">
+        <h3 class="text-3xl font-bold text-center mb-1">Welcome Back</h3>
+        <p class="text-gray-400 text-sm text-center mb-8">Enter your details to access your account</p>
+        
+        <form id="loginForm" class="space-y-5">
+          <!-- Username -->
+          <div class="relative">
+            <i class="far fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+            <input type="text" placeholder="Username" class="w-full bg-[#1a1a1a] border border-gray-800 rounded-xl py-3 pl-11 pr-4 focus:outline-none focus:border-yellow-400 transition-colors text-sm" required>
+          </div>
+          
+          <!-- Email -->
+          <div class="relative">
+            <i class="far fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+            <input type="email" placeholder="Email Address" class="w-full bg-[#1a1a1a] border border-gray-800 rounded-xl py-3 pl-11 pr-4 focus:outline-none focus:border-yellow-400 transition-colors text-sm" required>
+          </div>
+          
+          <!-- Password -->
+          <div class="relative">
+            <i class="fas fa-lock absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+            <input type="password" id="password" placeholder="Password" class="w-full bg-[#1a1a1a] border border-gray-800 rounded-xl py-3 pl-11 pr-11 focus:outline-none focus:border-yellow-400 transition-colors text-sm" required>
+            <i class="far fa-eye absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer hover:text-yellow-400 transition-colors" id="togglePassword"></i>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="submitBtn" class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3.5 rounded-xl transition-all duration-300 flex justify-center items-center mt-4 shadow-[0_0_15px_rgba(250,204,21,0.3)] hover:shadow-[0_0_20px_rgba(250,204,21,0.5)]">
+            <span id="btnText">Sign In</span>
+            <i class="fas fa-spinner fa-spin hidden ml-2" id="spinner"></i>
+          </button>
+        </form>
+
+        <!-- Separator -->
+        <div class="mt-8 flex items-center justify-between">
+          <hr class="w-full border-gray-800">
+          <span class="px-4 text-xs text-gray-500 uppercase font-semibold whitespace-nowrap">Or continue with</span>
+          <hr class="w-full border-gray-800">
+        </div>
+
+        <!-- Social Logins -->
+        <div class="flex gap-4 mt-8">
+          <button type="button" class="flex-1 bg-[#1a1a1a] hover:bg-gray-800 border border-gray-800 rounded-xl py-3 flex items-center justify-center transition-colors">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" class="w-4 h-4 mr-2" alt="Google">
+            <span class="text-sm font-medium">Google</span>
+          </button>
+          <button type="button" class="flex-1 bg-[#1a1a1a] hover:bg-gray-800 border border-gray-800 rounded-xl py-3 flex items-center justify-center transition-colors">
+            <i class="fab fa-github text-white mr-2 text-lg"></i>
+            <span class="text-sm font-medium">GitHub</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
