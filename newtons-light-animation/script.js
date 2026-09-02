@@ -87,11 +87,12 @@ async function startCycle() {
   }
 
   // Reset transforms when turned off
-  bulbs.forEach(b => {
+  for (let i = 0; i < bulbs.length; i++) {
+    const b = bulbs[i];
     b.style.transition = `transform ${swingTime}ms ease`;
     b.style.transform = 'rotate(0deg)';
     b.classList.remove('on');
-  });
+  }
   
   cycleActive = false;
 }

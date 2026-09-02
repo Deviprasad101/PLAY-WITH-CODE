@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassy Login Form</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="icon-container">
+            <i class="fa-solid fa-lock"></i>
+        </div>
+        
+        <h2>Welcome Back</h2>
+        <p>Login to your account</p>
+        
+        <form>
+            <div class="input-group">
+                <label>Email</label>
+                <div class="input-wrapper">
+                    <i class="fa-regular fa-envelope input-icon"></i>
+                    <input type="email" placeholder="Enter your email" required>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label>Password</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input type="password" id="password-input" placeholder="Enter your password" required>
+                    <i class="fa-regular fa-eye toggle-password" id="toggle-btn"></i>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <label class="remember">
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="#" class="forgot-link">Forgot password?</a>
+            </div>
+            
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+        
+        <div class="divider">
+            <span>or continue with</span>
+        </div>
+        
+        <div class="social-login">
+            <button class="social-btn"><i class="fa-brands fa-google"></i></button>
+            <button class="social-btn"><i class="fa-brands fa-github"></i></button>
+            <button class="social-btn"><i class="fa-brands fa-twitter"></i></button>
+        </div>
+        
+        <p class="signup-text">Don't have an account? <a href="#">Sign up</a></p>
+    </div>
+
+    <script>
+        // Simple script to toggle password visibility
+        const toggleBtn = document.getElementById('toggle-btn');
+        const passwordInput = document.getElementById('password-input');
+
+        toggleBtn.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            toggleBtn.classList.toggle('fa-eye');
+            toggleBtn.classList.toggle('fa-eye-slash');
+        });
+    </script>
+</body>
+</html>
