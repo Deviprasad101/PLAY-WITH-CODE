@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meniscus Nav</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="dot green"></div>
+        <span class="logo-text">MENISCUS <span class="dim">— <span class="highlight-green">HTML</span> <span class="highlight-yellow">CSS</span> <span class="highlight-pink">JS</span></span></span>
+    </div>
+
+    <div class="main-content">
+        <h1 id="page-title">Home</h1>
+        <p id="page-sub">Everything, on one surface.</p>
+    </div>
+
+    <div class="dock-wrapper">
+        <div class="dock">
+            <!-- The SVG background that forms the meniscus -->
+            <svg class="dock__skin" viewBox="0 0 500 80" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="dock-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#1e1e24" />
+                        <stop offset="100%" stop-color="#0a0a0c" />
+                    </linearGradient>
+                </defs>
+                <path id="skinFill" d=""></path>
+            </svg>
+            
+            <div class="dock__tabs" role="tablist">
+                <button class="tab active" role="tab" data-title="Home" data-sub="Everything, on one surface." style="--acc: #c9f24d">
+                    <i class="ph ph-house"></i>
+                    <span class="tab__label">Home</span>
+                </button>
+                <button class="tab" role="tab" data-title="Profile" data-sub="Manage your details." style="--acc: #a374ff">
+                    <i class="ph ph-user"></i>
+                    <span class="tab__label">Profile</span>
+                </button>
+                <button class="tab" role="tab" data-title="Messages" data-sub="Chat with your team." style="--acc: #4da6ff">
+                    <i class="ph ph-chat-circle"></i>
+                    <span class="tab__label">Messages</span>
+                </button>
+                <button class="tab" role="tab" data-title="Camera" data-sub="Capture the moment." style="--acc: #ff4d6d">
+                    <i class="ph ph-camera"></i>
+                    <span class="tab__label">Camera</span>
+                </button>
+                <button class="tab" role="tab" data-title="Settings" data-sub="Tweak to perfection." style="--acc: #ffb703">
+                    <i class="ph ph-sliders"></i>
+                    <span class="tab__label">Settings</span>
+                </button>
+            </div>
+            
+            <!-- The floating bead/button -->
+            <div class="dock__bead">
+                <i class="ph-fill ph-house" id="bead-icon"></i>
+            </div>
+        </div>
+        
+        <p class="hint">Tap a tab — or <span class="dotted">drag the bead</span> along the bar.</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

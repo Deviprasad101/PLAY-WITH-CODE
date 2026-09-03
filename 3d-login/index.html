@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative 3D Login Animation UI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="page-title">Creative 3D Login Animation UI</h1>
+    
+    <div class="sky-container">
+        <!-- Helicopter -->
+        <div id="helicopter">
+            <img id="helicopter-img" src="helicopter_sticker.jpg" alt="Luxury helicopter sticker" crossorigin="anonymous">
+            <div id="thread"></div>
+            <!-- The Banner / Login Form is now carried by the helicopter -->
+            <div class="banner-wrapper">
+            <div class="login-form" id="loginForm">
+                <h2>Welcome Back</h2>
+                <p class="sub">Sign in to continue</p>
+                <div class="field">
+                    <label>Username</label>
+                    <input type="text" placeholder="Enter username">
+                </div>
+                <div class="field">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter password">
+                </div>
+                <div class="options">
+                    <label><input type="checkbox"> Remember me</label> 
+                    <a href="#">Forgot?</a>
+                </div>
+                <button class="login-btn">Sign In</button>
+                <div class="divider">or</div>
+                <div class="signup-link">Don't have an account? <a href="#">Sign up</a></div>
+            </div>
+            <!-- A bottom roller graphic to make it look like a unrolled banner -->
+            <div class="banner-roller"></div>
+        </div>
+        </div> <!-- End of Helicopter -->
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
