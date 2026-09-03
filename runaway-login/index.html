@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runaway Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="top-nav">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <span class="logo-text">TETHER <span class="dim">— <span class="highlight-pink">HTML</span> <span class="highlight-blue">CSS</span> <span class="highlight-yellow">JS</span></span></span>
+    </div>
+
+    <div class="header">
+        <p class="subtitle">COMPONENT - 95</p>
+        <h1>Runaway<br><span class="highlight-teal">Login</span></h1>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="logo-icon"><i class="ph-bold ph-circle-notch"></i></div>
+            <span class="logo-name">TETHER</span>
+        </div>
+        
+        <h2>Sign in</h2>
+        <p class="welcome-text">Welcome back. Two fields stand between you and that button.</p>
+
+        <form id="login-form">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <div class="input-wrapper">
+                    <i class="ph ph-envelope-simple icon"></i>
+                    <input type="email" id="email" placeholder="address@example.com" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="label-row">
+                    <label for="password">Password</label>
+                    <a href="#" class="forgot-link">Forgot?</a>
+                </div>
+                <div class="input-wrapper">
+                    <i class="ph ph-lock-key icon"></i>
+                    <input type="password" id="password" placeholder="At least 8 characters" required minlength="8">
+                    <i class="ph ph-eye-slash icon-right" id="toggle-password"></i>
+                </div>
+            </div>
+
+            <div class="dock">
+                <div class="dock-area" id="dock-area">
+                    <svg class="dock__band" id="dock-band">
+                        <path id="band-line" stroke="var(--teal)" stroke-width="2" stroke-dasharray="6 6" fill="none" stroke-linecap="round"/>
+                    </svg>
+                    <button class="cta" type="submit" id="submit-btn" aria-disabled="true">
+                        Log in
+                    </button>
+                </div>
+            </div>
+            
+            <div class="form-footer">
+                <p class="bullet-text"><span class="bullet">•</span> Two fields to fill before it stands still.</p>
+                <p class="keyboard-hints">
+                    <span class="hint-box">Tab</span> reaches it. <span class="hint-box">Enter</span> submits.
+                </p>
+                <p class="create-account">No account yet? <a href="#">Create one</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
